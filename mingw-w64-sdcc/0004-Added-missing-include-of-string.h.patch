@@ -1,0 +1,25 @@
+From 6830c88e076faccd106a8988b5efee0dda17c87d Mon Sep 17 00:00:00 2001
+From: Joel Holdsworth <jholdsworth@nvidia.com>
+Date: Fri, 23 Aug 2024 14:05:51 -0700
+Subject: [PATCH 4/4] Added missing include of string.h
+
+---
+ src/SDCCattr.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/src/SDCCattr.c b/src/SDCCattr.c
+index b1194b3a9..6218ba3e0 100644
+--- a/src/SDCCattr.c
++++ b/src/SDCCattr.c
+@@ -18,6 +18,8 @@
+   Foundation, 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ -------------------------------------------------------------------------*/
+ 
++#include <string.h>
++
+ #include "SDCCattr.h"
+ #include "SDCCsymt.h"
+ #include "SDCCutil.h"
+-- 
+2.52.0.rc2.windows.1
+

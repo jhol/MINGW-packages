@@ -1,0 +1,25 @@
+From cde6edf8ee1fd380e375d162117b7d36ef95cb2e Mon Sep 17 00:00:00 2001
+From: Joel Holdsworth <jholdsworth@nvidia.com>
+Date: Wed, 19 Nov 2025 15:59:27 -0800
+Subject: [PATCH 1/4] Build all mcs51 models
+
+---
+ device/lib/Makefile.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/device/lib/Makefile.in b/device/lib/Makefile.in
+index d5bd43ddc..3a241e0c5 100644
+--- a/device/lib/Makefile.in
++++ b/device/lib/Makefile.in
+@@ -221,7 +221,7 @@ TARGETS        += model-mos65c02
+ endif
+ 
+ ifeq ($(OPT_DISABLE_MCS51), 0)
+-TARGETS        += models small-mcs51-stack-auto large-mcs51-stack-auto
++TARGETS        += models model-mcs51-stack-auto
+ endif
+ 
+ ifeq ($(OPT_DISABLE_PIC14), 0)
+-- 
+2.52.0.rc2.windows.1
+

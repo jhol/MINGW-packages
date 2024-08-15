@@ -1,0 +1,25 @@
+From 884ab436aab14e50fd67caf719febad20fba0791 Mon Sep 17 00:00:00 2001
+From: Joel Holdsworth <jholdsworth@nvidia.com>
+Date: Fri, 21 Nov 2025 16:23:22 -0800
+Subject: [PATCH 3/4] Add support/cpp/gcc to PATH in sdcc script
+
+Having this directory in the PATH is necessary to enable sdcc to find
+the cc1.exe back-end executable.
+---
+ bin/sdcc.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/bin/sdcc.in b/bin/sdcc.in
+index c8f8bc39a..cd7865a91 100644
+--- a/bin/sdcc.in
++++ b/bin/sdcc.in
+@@ -1,5 +1,5 @@
+ #!/bin/sh
+ 
+ abs_top_builddir=@abs_top_builddir@
+-export PATH=${abs_top_builddir}/src:${abs_top_builddir}/bin:$PATH
++export PATH=${abs_top_builddir}/src:${abs_top_builddir}/bin:${abs_top_builddir}/support/cpp/gcc:$PATH
+ sdcc "$@"
+-- 
+2.52.0.rc2.windows.1
+
