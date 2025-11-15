@@ -1,0 +1,12 @@
+diff -urN gputils-1.5.2/libiberty/getopt.c gputils-1.5.2-mod3/libiberty/getopt.c
+--- a/libiberty/getopt.c	2013-03-03 08:50:16.000000000 -0800
++++ b/libiberty/getopt.c	2025-11-15 15:25:28.478283400 -0800
+@@ -213,7 +213,7 @@
+    whose names are inconsistent.  */
+ 
+ #ifndef getenv
+-extern char *getenv ();
++extern char *getenv (const char *name);
+ #endif
+ 
+ static char *

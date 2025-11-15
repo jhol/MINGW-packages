@@ -1,0 +1,14 @@
+diff -urN gputils-1.5.2/libgputils/gptypes.h gputils-1.5.2-mod2/libgputils/gptypes.h
+--- a/libgputils/gptypes.h	2016-08-08 01:30:13.000000000 -0700
++++ b/libgputils/gptypes.h	2025-11-15 15:22:19.162021300 -0800
+@@ -27,8 +27,8 @@
+ #include "stdhdr.h"
+ 
+ typedef enum {
+-  false = (0 == 1),
+-  true  = (0 == 0)
++  gp_false = (0 == 1),
++  gp_true  = (0 == 0)
+ } gp_boolean;
+ 
+ typedef long    gp_symvalue_t;

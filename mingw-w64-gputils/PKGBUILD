@@ -9,11 +9,26 @@ mingw_arch=('mingw64' 'ucrt64' 'clang64' 'clangarm64')
 url='https://gputils.sourceforge.net'
 license=('spdx:GPL-2.0-or-later')
 makedepends=("${MINGW_PACKAGE_PREFIX}-cc")
-source=("https://downloads.sourceforge.net/${_realname}/${_realname}-${pkgver}.tar.gz")
-sha256sums=('62a215e7d5575cd488a5ada66e5708ff402634abe86a9b39e4dbdb19c986ab7e')
+source=(
+  "https://downloads.sourceforge.net/${_realname}/${_realname}-${pkgver}.tar.gz"
+  "fix-gp-boolean.patch"
+  "fix-getenv.patch"
+  "fix-include-paths.patch"
+)
+sha256sums=(
+  '62a215e7d5575cd488a5ada66e5708ff402634abe86a9b39e4dbdb19c986ab7e'
+  '4a989de92a3c9752f379b6bc12041dd218e20d27ee19b00120d0ebdcd0abfd1f'
+  'b27ff4d0169903441559ec652e97ad6094e6a0bc2d8caba1ed06b1d6d74bd6cf'
+)
+
+prepare() {
+  cd "${srcdir}/${_realname}-${pkgver}"
+  patch -p1 -i "$srcdir/fix-getenv.patch"
+  patch -p1 -i "$srcdir/fix-gp-boolean.patch"
+}
 
 build() {
-  cd "${_realname}-${pkgver}"
+  cd "${srcdir}/${_realname}-${pkgver}"
 
   ./configure \
     --prefix="${MINGW_PREFIX}" \
