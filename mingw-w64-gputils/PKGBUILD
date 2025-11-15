@@ -2,7 +2,7 @@ _realname=gputils
 pkgbase=mingw-w64-${_realname}
 pkgname=("${MINGW_PACKAGE_PREFIX}-${_realname}")
 pkgver=1.5.2
-pkgrel=1
+pkgrel=2
 pkgdesc='The GNU PIC Utilities for the Microchip PIC microcontrollers family (mingw-w64)'
 arch=('any')
 mingw_arch=('mingw64' 'ucrt64' 'clang64' 'clangarm64')
@@ -19,12 +19,14 @@ sha256sums=(
   '62a215e7d5575cd488a5ada66e5708ff402634abe86a9b39e4dbdb19c986ab7e'
   '4a989de92a3c9752f379b6bc12041dd218e20d27ee19b00120d0ebdcd0abfd1f'
   'b27ff4d0169903441559ec652e97ad6094e6a0bc2d8caba1ed06b1d6d74bd6cf'
+  '0db9912018340cb4b2e3d1c2862dff2a6c978ac7c3848a8f04d488964daa6980'
 )
 
 prepare() {
   cd "${srcdir}/${_realname}-${pkgver}"
   patch -p1 -i "$srcdir/fix-getenv.patch"
   patch -p1 -i "$srcdir/fix-gp-boolean.patch"
+  patch -p1 -i "$srcdir/fix-include-paths.patch"
 }
 
 build() {
